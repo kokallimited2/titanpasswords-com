@@ -1,0 +1,28 @@
+{
+  "id": "titanpasswords-com",
+  "name": "TitanPasswords",
+  "domain": "titanpasswords.com",
+  "url": "https://titanpasswords.com",
+  "emoji": "⚡",
+  "brand": "TitanPasswords",
+  "angle": "Power/enterprise brand. Business & team password auditing + generation. Premium feel.",
+  "primaryColor": "purple",
+  "description": "Enterprise-grade password generator and security auditor. Built for businesses and power users.",
+  "shortDescription": "Enterprise Password Generator",
+  "topic": "enterprise password security, business cybersecurity, password auditing",
+  "tags": [
+    "enterprise",
+    "business",
+    "passwords",
+    "security",
+    "audit"
+  ],
+  "active": true,
+  "repo": "kokallimited2/titanpasswords-com",
+  "deployDay": 1,
+  "deploySlot": "12:00",
+  "posts": [],
+  "defaultKeywords": "enterprise password security, business cybersecurity, password auditing",
+  "blogDescription": "Guides, tips and news about enterprise password security, business cybersecurity, password auditing.",
+  "generatedAt": "2026-04-26"
+}

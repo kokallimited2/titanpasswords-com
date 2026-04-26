@@ -1,0 +1,18 @@
+# TitanPasswords — llms.txt
+# https://llmstxt.org
+
+> Enterprise-grade password generator and security auditor. Built for businesses and power users.
+
+## Tool
+- [Enterprise Password Generator](https://titanpasswords.com/): Enterprise-grade password generator and security auditor. Built for businesses and power users.
+
+## Blog
+- [Blog](https://titanpasswords.com/blog/): Guides and tips about enterprise password security, business cybersecurity, password auditing.
+
+## Key Facts
+- Free to use, no sign-up required
+- Client-side only — no data stored or transmitted
+- Cryptographically secure (crypto.getRandomValues)
+
+## Affiliate Disclosure
+This site may contain affiliate links to password managers.
