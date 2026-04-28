@@ -3,7 +3,7 @@
   "name": "TitanPasswords",
   "domain": "titanpasswords.com",
   "url": "https://titanpasswords.com",
-  "emoji": "⚡",
+  "emoji": "\u26a1",
   "brand": "TitanPasswords",
   "angle": "Power/enterprise brand. Business & team password auditing + generation. Premium feel.",
   "primaryColor": "purple",
@@ -24,5 +24,6 @@
   "posts": [],
   "defaultKeywords": "enterprise password security, business cybersecurity, password auditing",
   "blogDescription": "Guides, tips and news about enterprise password security, business cybersecurity, password auditing.",
-  "generatedAt": "2026-04-26"
+  "generatedAt": "2026-04-26",
+  "siteName": "TitanPasswords"
 }
