@@ -1,5 +1,23 @@
 [
   {
+    "slug": "what-is-a-brute-force-attack-and-how-to-stop-one",
+    "title": "What Is a Brute Force Attack — and How to Stop One",
+    "excerpt": "Brute force attacks systematically try every possible password combination. Here's how they work and how to make yourself immune.",
+    "date": "2026-04-29",
+    "category": "Security Tips",
+    "readTime": "5 min read",
+    "keywords": "brute force attack, password attack, prevent brute force, account lockout, rate limiting"
+  },
+  {
+    "slug": "biometric-authentication-vs-passwords-pros-cons-and-the-future",
+    "title": "Biometric Authentication vs Passwords: Pros, Cons, and the Future",
+    "excerpt": "Face ID, fingerprints, and voice recognition are replacing passwords everywhere. Are they actually more secure?",
+    "date": "2026-04-29",
+    "category": "Future of Security",
+    "readTime": "5 min read",
+    "keywords": "biometric authentication, Face ID, fingerprint login, biometrics vs password, facial recognition security"
+  },
+  {
     "slug": "how-long-would-it-take-to-crack-your-password",
     "title": "How Long Would It Take to Crack Your Password?",
     "excerpt": "Password cracking speeds have increased dramatically with modern GPUs. Find out how your current passwords measure up.",
