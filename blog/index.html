@@ -58,20 +58,23 @@
     <script>
         fetch('/post.json')
             .then(r => r.json())
-            .then(posts => {
+            .then(data => {
+                const posts = data.posts || data;
                 const grid = document.getElementById('blog-posts');
-                grid.innerHTML = posts.slice().reverse().map(p => `
-                    <article class="blog-card">
-                        <a href="/blog/${p.url}">${p.image ? '<img src="' + p.image + '" alt="' + p.title + '" loading="lazy">' : ''}</a>
-                        <div class="blog-card-body">
-                            <h3><a href="/blog/${p.url}">${p.title}</a></h3>
-                            <div class="meta">${p.date}</div>
-                            <p>${p.excerpt || ''}</p>
-                        </div>
-                    </article>
-                `).join('');
+                grid.innerHTML = posts.slice().reverse().map(p => {
+                    const url = p.slug || p.url || '';
+                    const excerpt = p.excerpt || '';
+                    const date = p.date || '';
+                    const title = p.title || '';
+                    return '<article class="blog-card">' +
+                        '<div class="blog-card-body">' +
+                        '<h3><a href="/blog/' + url + '.html">' + title + '</a></h3>' +
+                        '<div class="meta">' + date + '</div>' +
+                        '<p>' + excerpt + '</p>' +
+                        '</div></article>';
+                }).join('');
             })
-            .catch(() => document.getElementById('blog-posts').innerHTML = '<p>No posts yet.</p>');
+            .catch(e => document.getElementById('blog-posts').innerHTML = '<p>No posts yet. Check back soon.</p>');
     </script>
 </body>
 </html>
