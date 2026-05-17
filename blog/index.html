@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Security blog with expert tips on password protection, account security, and digital safety best practices.">
+    <link rel="canonical" href="https://titanpasswords.com/blog/">
+    <title>Security Blog - Password & Account Protection Tips</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "@id": "https://titanpasswords.com/blog/#blog",
+        "name": "Security Blog",
+        "url": "https://titanpasswords.com/blog/",
+        "description": "Expert security tips for password protection, account safety, and digital best practices.",
+        "publisher": {
+            "@type": "Organization",
+            "@id": "https://titanpasswords.com/#organization",
+            "name": "SecureKeyGenerator"
+        }
+    }
+    </script>
+    <style>
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; padding: 2rem 0; }
+        .blog-card { background: var(--bg-card,#fff); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: transform 0.2s; }
+        .blog-card:hover { transform: translateY(-3px); }
+        .blog-card img { width: 100%; height: 200px; object-fit: cover; }
+        .blog-card-body { padding: 1.5rem; }
+        .blog-card h3 { margin: 0 0 0.5rem; font-size: 1.15rem; }
+        .blog-card h3 a { color: var(--text,#1a1a2e); text-decoration: none; }
+        .blog-card h3 a:hover { color: var(--p,#3b82f6); }
+        .blog-card .meta { font-size: 0.85rem; color: #666; margin-bottom: 0.75rem; }
+        .blog-card p { font-size: 0.95rem; line-height: 1.5; color: #555; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">TitanPasswords</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/blog/" class="active">Blog</a>
+                <a href="/about.html">About</a>
+                <a href="/contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1>Security Blog</h1>
+        <p>Expert tips and guides for keeping your digital life secure.</p>
+        <div id="blog-posts" class="blog-grid">
+            <p>Loading posts...</p>
+        </div>
+    </main>
+    <script>
+        fetch('/post.json')
+            .then(r => r.json())
+            .then(posts => {
+                const grid = document.getElementById('blog-posts');
+                grid.innerHTML = posts.slice().reverse().map(p => `
+                    <article class="blog-card">
+                        <a href="/blog/${p.url}">${p.image ? '<img src="' + p.image + '" alt="' + p.title + '" loading="lazy">' : ''}</a>
+                        <div class="blog-card-body">
+                            <h3><a href="/blog/${p.url}">${p.title}</a></h3>
+                            <div class="meta">${p.date}</div>
+                            <p>${p.excerpt || ''}</p>
+                        </div>
+                    </article>
+                `).join('');
+            })
+            .catch(() => document.getElementById('blog-posts').innerHTML = '<p>No posts yet.</p>');
+    </script>
+</body>
+</html>
