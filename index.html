@@ -91,6 +91,47 @@
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://titanpasswords.com/" },
       { "@type": "ListItem", "position": 2, "name": "Password Generator", "item": "https://titanpasswords.com/" }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebAPI",
+    "@id": "https://titanpasswords.com/#webapi",
+    "name": "TitanPasswords WebMCP API",
+    "description": "AI-agent accessible API for password generation and strength checking. All processing is client-side in the browser.",
+    "documentation": "https://titanpasswords.com/",
+    "browserRequirements": "Requires JavaScript",
+    "actionPlatform": ["https://schema.org/DesktopWebPlatform", "https://schema.org/MobileWebPlatform"],
+    "potentialAction": [
+      {
+        "@type": "GenerateAction",
+        "name": "Generate Password",
+        "description": "Generate a cryptographically secure random password with customizable length, character types, and ambiguity exclusion",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://titanpasswords.com/?action=generate&length={length}&uppercase={uppercase}&lowercase={lowercase}&numbers={numbers}&symbols={symbols}&excludeAmbiguous={excludeAmbiguous}",
+          "httpMethod": "GET",
+          "contentType": "application/json",
+          "encodingType": "application/x-www-form-urlencoded"
+        },
+        "object": {
+          "@type": "SoftwareApplication",
+          "name": "TitanPasswords Generator",
+          "applicationCategory": "SecurityApplication"
+        }
+      },
+      {
+        "@type": "CheckAction",
+        "name": "Check Password Strength",
+        "description": "Analyze a password and return strength score, estimated crack time, and improvement tips",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://titanpasswords.com/?action=check&password={password}",
+          "httpMethod": "GET",
+          "contentType": "application/json",
+          "encodingType": "application/x-www-form-urlencoded"
+        }
+      }
+    ]
   }
 ]
 </script>
@@ -263,5 +304,32 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+(function() {
+  'use strict';
+  var gen = new PasswordGenerator();
+  var checker = new PasswordStrengthChecker();
+  window.__webmcp = {
+    name: 'TitanPasswords',
+    version: '2.0',
+    description: 'AI-accessible password generation and strength checking API',
+    actions: {
+      generatePassword: {
+        description: 'Generate a cryptographically secure random password with custom options',
+        parameters: {length: {type:'number',default:16,min:4,max:128}, useUppercase:{type:'boolean',default:true}, useLowercase:{type:'boolean',default:true}, useNumbers:{type:'boolean',default:true}, useSymbols:{type:'boolean',default:true}, excludeAmbiguous:{type:'boolean',default:false}},
+        returns: {type:'string'},
+        handler: function(p){p=p||{};return gen.generate(p.length||16,p.useUppercase!==false,p.useLowercase!==false,p.useNumbers!==false,p.useSymbols!==false,p.excludeAmbiguous||false);}
+      },
+      checkStrength: {
+        description: 'Analyze a password and return detailed strength metrics',
+        parameters: {password:{type:'string',required:true}},
+        returns: {type:'object',properties:{score:{type:'number'},strength:{type:'string'},time:{type:'string'},tips:{type:'array'}}},
+        handler: function(p){if(!p||!p.password)return{error:'password required'};var r=checker.check(p.password);return{score:r.score,strength:r.strength,time:r.time,tips:r.tips};}
+      }
+    },
+    call: function(a,p){var d=this.actions[a];return d?d.handler(p):{error:'unknown action: '+a};}
+  };
+})();
+</script>
 </body>
 </html>
