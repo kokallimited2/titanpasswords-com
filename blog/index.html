@@ -6,55 +6,77 @@
     <meta name="robots" content="index, follow">
     <meta name="description" content="Security blog with expert tips on password protection, account security, and digital safety best practices.">
     <link rel="canonical" href="https://titanpasswords.com/blog/">
-    <title>Security Blog - Password & Account Protection Tips</title>
+    <title>Security Blog — TitanPasswords</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Blog",
         "@id": "https://titanpasswords.com/blog/#blog",
-        "name": "Security Blog",
+        "name": "TitanPasswords Security Blog",
         "url": "https://titanpasswords.com/blog/",
         "description": "Expert security tips for password protection, account safety, and digital best practices.",
         "publisher": {
             "@type": "Organization",
             "@id": "https://titanpasswords.com/#organization",
-            "name": "SecureKeyGenerator"
+            "name": "TitanPasswords"
         }
     }
     </script>
-    <style>
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; padding: 2rem 0; }
-        .blog-card { background: var(--bg-card,#fff); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: transform 0.2s; }
-        .blog-card:hover { transform: translateY(-3px); }
-        .blog-card img { width: 100%; height: 200px; object-fit: cover; }
-        .blog-card-body { padding: 1.5rem; }
-        .blog-card h3 { margin: 0 0 0.5rem; font-size: 1.15rem; }
-        .blog-card h3 a { color: var(--text,#1a1a2e); text-decoration: none; }
-        .blog-card h3 a:hover { color: var(--p,#3b82f6); }
-        .blog-card .meta { font-size: 0.85rem; color: #666; margin-bottom: 0.75rem; }
-        .blog-card p { font-size: 0.95rem; line-height: 1.5; color: #555; }
-    </style>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%2357534E' width='100' height='100'/%3E%3Ctext x='50' y='70' font-size='60' font-weight='bold' text-anchor='middle' fill='white' font-family='Arial'%3ETP%3C/text%3E%3C/svg%3E">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="/" class="logo">TitanPasswords</a>
-            <div class="nav-links">
-                <a href="/">Home</a>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="nav-brand">
+                <span class="nav-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="64" height="64">
+  <defs>
+    <linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#57534E;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#57534Ecc;stop-opacity:1"/>
+    </linearGradient>
+    <filter id="s2">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <circle cx="100" cy="100" r="95" fill="url(#lg2)" filter="url(#s2)"/>
+  <rect x="60" y="80" width="80" height="60" rx="10" fill="white" opacity="0.95"/>
+  <path d="M 65 80 Q 65 45 100 45 Q 135 45 135 80" fill="none" stroke="white" stroke-width="9" stroke-linecap="round" opacity="0.95"/>
+  <circle cx="100" cy="110" r="10" fill="#57534E" opacity="0.8"/>
+  <rect x="97" y="120" width="6" height="18" rx="3" fill="#57534E" opacity="0.8"/>
+</svg></span>
+                <span class="nav-name">TitanPass</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#generator">Generator</a>
                 <a href="/blog/" class="active">Blog</a>
                 <a href="/about.html">About</a>
                 <a href="/contact.html">Contact</a>
             </div>
-        </nav>
-    </header>
-    <main>
-        <h1>Security Blog</h1>
-        <p>Expert tips and guides for keeping your digital life secure.</p>
-        <div id="blog-posts" class="blog-grid">
-            <p>Loading posts...</p>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
         </div>
-    </main>
+    </nav>
+
+    <section class="blog-listing-hero">
+        <div class="container">
+            <div class="hero-badge">📖 Security Blog</div>
+            <h1>Security Insights</h1>
+            <p>Expert guides and tips to protect your passwords, accounts, and digital life.</p>
+        </div>
+    </section>
+
+    <section class="blog-listing-section">
+        <div class="container">
+            <div id="blog-posts" class="blog-card-grid">
+                <div class="blog-empty-state"><p>Loading posts…</p></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Portfolio cross-links -->
     <section style="background:#FAF5F5;padding:32px 22px;text-align:center">
         <div style="max-width:800px;margin:0 auto">
@@ -67,26 +89,89 @@
             </div>
         </div>
     </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="64" height="64">
+  <defs>
+    <linearGradient id="lg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#57534E;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#57534Ecc;stop-opacity:1"/>
+    </linearGradient>
+    <filter id="s3">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <circle cx="100" cy="100" r="95" fill="url(#lg3)" filter="url(#s3)"/>
+  <rect x="60" y="80" width="80" height="60" rx="10" fill="white" opacity="0.95"/>
+  <path d="M 65 80 Q 65 45 100 45 Q 135 45 135 80" fill="none" stroke="white" stroke-width="9" stroke-linecap="round" opacity="0.95"/>
+  <circle cx="100" cy="110" r="10" fill="#57534E" opacity="0.8"/>
+  <rect x="97" y="120" width="6" height="18" rx="3" fill="#57534E" opacity="0.8"/>
+</svg></div>
+                    <p class="footer-desc">Create titan-strong passwords with our advanced generator. Heavy-duty security for accounts that matter most.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="/#generator">Generator</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/about.html">About</a>
+                    <a href="/contact.html">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <a href="/privacy-policy.html">Privacy Policy</a>
+                    <a href="/affiliate-disclosure.html">Affiliate Disclosure</a>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>© 2026 TitanPasswords. Unbreakable security.</p></div>
+        </div>
+    </footer>
+
     <script>
+        // Mobile nav toggle
+        (function() {
+            var toggle = document.getElementById('navToggle');
+            var nav = document.getElementById('navLinks');
+            if (toggle && nav) {
+                toggle.addEventListener('click', function() { nav.classList.toggle('open'); });
+                nav.querySelectorAll('a').forEach(function(a) {
+                    a.addEventListener('click', function() { nav.classList.remove('open'); });
+                });
+            }
+        })();
+
+        // Load blog posts
         fetch('/post.json')
-            .then(r => r.json())
-            .then(data => {
-                const posts = data.posts || data;
-                const grid = document.getElementById('blog-posts');
-                grid.innerHTML = posts.slice().reverse().map(p => {
-                    const url = p.slug || p.url || '';
-                    const excerpt = p.excerpt || '';
-                    const date = p.date || '';
-                    const title = p.title || '';
-                    return '<article class="blog-card">' +
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var posts = data.posts || data;
+                var grid = document.getElementById('blog-posts');
+                if (!posts || !posts.length) {
+                    grid.innerHTML = '<div class="blog-empty-state"><p>No posts yet. Check back soon.</p></div>';
+                    return;
+                }
+                grid.innerHTML = posts.slice().reverse().map(function(p) {
+                    var url = p.slug || p.url || '';
+                    var excerpt = p.excerpt || '';
+                    var date = p.date || '';
+                    var title = p.title || '';
+                    var category = p.category || 'Security';
+                    return '<article class="blog-card-item">' +
                         '<div class="blog-card-body">' +
-                        '<h3><a href="/blog/' + url + '.html">' + title + '</a></h3>' +
-                        '<div class="meta">' + date + '</div>' +
-                        '<p>' + excerpt + '</p>' +
+                        '<span class="blog-card-tag">' + category + '</span>' +
+                        '<h3 class="blog-card-title"><a href="/blog/' + url + '.html">' + title + '</a></h3>' +
+                        '<div class="blog-card-meta">' + date + '</div>' +
+                        '<p class="blog-card-excerpt">' + excerpt + '</p>' +
+                        '<a href="/blog/' + url + '.html" class="blog-card-cta">Read more &rarr;</a>' +
                         '</div></article>';
                 }).join('');
             })
-            .catch(e => document.getElementById('blog-posts').innerHTML = '<p>No posts yet. Check back soon.</p>');
+            .catch(function() {
+                document.getElementById('blog-posts').innerHTML =
+                    '<div class="blog-empty-state"><p>No posts yet. Check back soon.</p></div>';
+            });
     </script>
 </body>
 </html>

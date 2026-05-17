@@ -108,6 +108,36 @@ class PasswordStrengthChecker {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        // Close nav on link click (mobile)
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => navLinks.classList.remove('open'));
+        });
+    }
+
+    // Nav active state: mark current page
+    (function markActiveNav() {
+        const path = window.location.pathname.replace(/\/$/, '');
+        if (!navLinks) return;
+        navLinks.querySelectorAll('a').forEach(a => {
+            const href = a.getAttribute('href');
+            if (!href) return;
+            // Strip fragment and trailing slash for comparison
+            const hrefPath = href.split('#')[0].replace(/\/$/, '');
+            if (hrefPath && hrefPath !== '' && path === hrefPath) {
+                a.classList.add('active');
+            } else if (hrefPath === '' && (path === '' || path === '/')) {
+                a.classList.add('active');
+            }
+        });
+    })();
+
     const gen = new PasswordGenerator();
     const checker = new PasswordStrengthChecker();
     const display = document.getElementById('password-display');
